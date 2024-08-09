@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Observable} from 'rxjs';
+import {WeatherDto} from "./weather_api.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://api.weatherapi.com/v1/current.json?key=f09ff240632f45688da81422240908&q=London&aqi=no';
 
-  getData(): Observable<any>{
-    return this.http.get( "https://api.open-meteo.com/v1/forecast")
+  constructor(private http: HttpClient) { }
+
+  getWeatherDto(): Observable<WeatherDto>{
+    return this.http.get<WeatherDto>(`${this.apiUrl}/weather`)
   }
+
 }

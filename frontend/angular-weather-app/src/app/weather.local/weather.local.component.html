@@ -1,1 +1,27 @@
-<p>weather.local works!</p>
+<div class="comment-list">
+    <h2>Weather</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Local Time</th>
+            <th>Temperature</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="weather">
+            <td>{{ weather.location.name }}</td>
+            <td>{{ weather.location.region }}</td>
+            <td>{{ weather.location.country }}</td>
+            <td>{{ weather.location.localtime }}</td>
+            <td>{{ weather.current.temp_c }}</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
