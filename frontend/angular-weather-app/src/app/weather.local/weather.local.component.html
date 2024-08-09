@@ -8,6 +8,10 @@
             <th>Country</th>
             <th>Local Time</th>
             <th>Temperature</th>
+            <th>Current</th>
+            <th></th>
+
+
 
 
         </tr>
@@ -19,6 +23,10 @@
             <td>{{ weather.location.country }}</td>
             <td>{{ weather.location.localtime }}</td>
             <td>{{ weather.current.temp_c }}</td>
+            <td>{{ weather.current.condition.text }}</td>
+            <td><img [src]="'https:' + weather.current.condition.icon" alt="{{ weather.current.condition.text }}"></td>
+
+
 
 
         </tr>
